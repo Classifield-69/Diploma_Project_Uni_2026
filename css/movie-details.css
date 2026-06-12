@@ -1,0 +1,355 @@
+/* ============================================================
+   FilmSight — movie-details.css
+   Стилове за movie-details.html:
+   - Film hero (постер вляво, инфо вдясно)
+   - ML score хапчета
+   - Analyze бутон (admin only)
+   - Списък с ревюта
+   Зависи от style.css за общите части (nav, footer, fonts).
+   ============================================================ */
+
+
+/* ── СТАТУС СЪОБЩЕНИЕ ── */
+.status-msg {
+    font-size: 13px;
+    color: var(--color-muted);
+    padding: 8px 0 16px;
+}
+
+.status-msg.error {
+    color: #c0392b;
+}
+
+
+/* ── FILM HERO ── */
+/* Постер вляво (фиксирана ширина), инфо вдясно (остатъкът) */
+.film-hero {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 36px;
+    margin-bottom: 40px;
+    align-items: start;
+}
+
+.film-poster-large {
+    width: 220px;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    background: #d4cfc7;
+}
+
+/* ── FILM INFO (дясна колона) ── */
+.film-info-text {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 4px;
+}
+
+.film-title {
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 400;
+    color: var(--color-black);
+    line-height: 1.2;
+}
+
+.movie-year {
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--color-muted);
+}
+
+.film-divider {
+    border: none;
+    border-top: 0.5px solid var(--color-border);
+}
+
+/* Мета редове (Режисьор, Актьори и т.н.) */
+.film-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.film-meta p {
+    font-size: 13px;
+    color: #444444;
+    line-height: 1.5;
+}
+
+.film-meta strong {
+    color: var(--color-black);
+    font-weight: 500;
+}
+
+/* ML SCORE */
+.film-scores {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.score-pill {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 5px 14px;
+    border-radius: 3px;
+    letter-spacing: 0.04em;
+}
+
+/* LSTM запълнен черен */
+.score-pill--lstm {
+    background: var(--color-black);
+    color: #ffffff;
+}
+
+/* BiLSTM само рамка */
+.score-pill--bilstm {
+    background: transparent;
+    color: var(--color-black);
+    border: 0.5px solid var(--color-black);
+}
+
+/* Когато оценката все още не е анализирана */
+.score-pill--pending {
+    background: transparent;
+    color: var(--color-muted);
+    border: 0.5px solid var(--color-border);
+}
+
+/*  ANALYZE БУТОН (видим при логнат admin) */
+.analyze-section {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 4px;
+}
+
+#analyze-btn {
+    align-self: flex-start;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 7px 20px;
+    border-radius: 3px;
+    background: #c0392b;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.15s;
+}
+
+#analyze-btn:hover {
+    opacity: 0.85;
+}
+
+#analyze-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#analyze-status {
+    font-size: 12px;
+    color: var(--color-muted);
+}
+
+
+/* ПОЛЕ ЗА НОВО РЕВЮ */
+.review-form-section {
+    margin-bottom: 24px;
+    padding: 20px 0;
+    border-bottom: 0.5px solid var(--color-border);
+}
+
+.review-form-login {
+    font-size: 13px;
+    color: var(--color-muted);
+}
+
+.review-form-login a {
+    color: var(--color-black);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.review-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.review-textarea {
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--color-black);
+    background: var(--color-white);
+    border: 0.5px solid var(--color-border);
+    border-radius: 4px;
+    padding: 12px 14px;
+    width: 100%;
+    resize: vertical;
+    outline: none;
+    line-height: 1.6;
+    transition: border-color 0.15s;
+}
+
+.review-textarea::placeholder {
+    color: #cccccc;
+}
+
+.review-textarea:focus {
+    border-color: var(--color-black);
+}
+
+.review-form-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 14px;
+}
+
+.review-char-count {
+    font-size: 11px;
+    color: var(--color-muted);
+}
+
+.review-submit-btn {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 8px 22px;
+    background: var(--color-black);
+    color: #ffffff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: opacity 0.15s;
+}
+
+.review-submit-btn:hover {
+    opacity: 0.85;
+}
+
+.review-submit-btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.review-status {
+    font-size: 12px;
+    color: var(--color-muted);
+    min-height: 16px;
+}
+
+.review-status.error {
+    color: #c0392b;
+}
+
+
+/* ── REVIEWS ── */
+#reviews-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 4px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--color-black);
+}
+
+.reviews-list {
+    margin-top: 0;
+}
+
+/* Едно ревю */
+.review {
+    padding: 16px 0;
+    border-bottom: 0.5px solid var(--color-border);
+}
+
+.review:last-child {
+    border-bottom: none;
+}
+
+/* Автор вляво, дата вдясно */
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+}
+
+.review-author {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--color-black);
+}
+
+.review-date {
+    font-size: 11px;
+    color: var(--color-muted);
+}
+
+/* Текстът на ревюто*/
+.review-text {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 400;
+    font-style: italic;
+    color: #333333;
+    line-height: 1.75;
+    margin-bottom: 10px;
+}
+
+/* ML тагове под ревюто */
+.review-predictions {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.review-tag {
+    font-size: 10px;
+    padding: 2px 8px;
+    background: #ede9e2;
+    color: #555555;
+    border-radius: 2px;
+}
+
+/* Когато ревюто не е анализирано */
+.review-tag--empty {
+    background: #f3f0eb;
+    color: #bbbbbb;
+}
+
+/* Съобщение когато няма ревюта */
+.reviews-empty {
+    font-size: 13px;
+    color: var(--color-muted);
+    padding: 16px 0;
+}
+
+
+/* ── RESPONSIVE ── */
+@media (max-width: 700px) {
+    .film-hero {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .film-poster-large {
+        width: 160px;
+    }
+
+    .film-title {
+        font-size: 24px;
+    }
+}

@@ -1,0 +1,275 @@
+/* 
+   FilmSight — style.css
+   Списанийски стил: кремов фон, черен header, serif заглавия
+ */
+
+/* ── RESET & BASE ── */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --color-bg:        #f7f4ef;
+    --color-white:     #ffffff;
+    --color-black:     #111111;
+    --color-border:    #e0dbd2;
+    --color-muted:     #aaaaaa;
+    --color-text:      #111111;
+
+    --font-display:    'Playfair Display', Georgia, serif;
+    --font-body:       'DM Sans', sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--color-bg);
+    color: var(--color-text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ── HEADER ── */
+.site-header {
+    background: var(--color-black);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    height: 52px;
+    padding: 0 32px;
+    gap: 24px;
+}
+
+.nav-logo {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 400;
+    color: #ffffff;
+    letter-spacing: 0.08em;
+    margin-right: auto;
+}
+
+.nav-link {
+    font-size: 11px;
+    font-weight: 500;
+    color: #aaaaaa;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    transition: color 0.15s;
+}
+
+.nav-link:hover {
+    color: #ffffff;
+}
+
+.nav-right {
+    display: flex;
+    gap: 8px;
+}
+
+.nav-btn {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 6px 16px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: opacity 0.15s;
+}
+
+.nav-btn:hover {
+    opacity: 0.8;
+}
+
+.nav-btn--outline {
+    background: transparent;
+    color: #ffffff;
+    border: 0.5px solid #ffffff;
+}
+
+/* Потребителско ime в nav (логнат user / admin) */
+.nav-user {
+    font-size: 11px;
+    font-weight: 500;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 6px 0;
+}
+
+.nav-user-admin {
+    color: #f0c040;
+}
+
+/* Подзаглавие под навигацията */
+.nav-tagline {
+    background: var(--color-black);
+    border-top: 0.5px solid #222222;
+    padding: 5px 32px;
+    font-size: 10px;
+    font-weight: 500;
+    color: #555555;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* ── MAIN ── */
+.main-content {
+    flex: 1;
+    padding: 32px 32px 48px;
+    padding-top: calc(79px + 32px);
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* ── SECTION HEADER ── */
+.section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--color-black);
+}
+
+.section-title {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-black);
+}
+
+.section-count {
+    font-size: 11px;
+    color: var(--color-muted);
+}
+
+/* ── MOVIES GRID ── */
+.movies-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+/* ── MOVIE CARD ── */
+.movie-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.movie-card {
+    background: var(--color-white);
+    border-radius: 8px;
+    border: 0.5px solid var(--color-border);
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+    cursor: pointer;
+}
+
+.movie-card:hover {
+    border-color: #999999;
+    transform: translateY(-2px);
+}
+
+.movie-poster {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    display: block;
+    background: #d4cfc7;
+}
+
+.movie-info {
+    padding: 10px 12px 14px;
+}
+
+.movie-title {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color-black);
+    line-height: 1.35;
+}
+
+/* ── ERROR STATE ── */
+.movies-grid .error-msg {
+    grid-column: 1 / -1;
+    font-size: 13px;
+    color: #c0392b;
+    padding: 16px 0;
+}
+
+/* ── FOOTER ── */
+.site-footer {
+    background: var(--color-black);
+    padding: 14px 32px;
+    text-align: center;
+}
+
+.site-footer span {
+    font-size: 10px;
+    font-weight: 500;
+    color: #444444;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+/* ── RESPONSIVE ── */
+
+/* Среден екран → 2 колони */
+@media (max-width: 900px) {
+    .nav {
+        padding: 0 20px;
+    }
+    .nav-tagline {
+        padding: 5px 20px;
+    }
+    .main-content {
+        padding: 24px 20px 40px;
+        padding-top: calc(79px + 24px);
+    }
+    .movies-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+    .site-footer {
+        padding: 14px 20px;
+    }
+}
+
+/* Малък екран → 1 колона */
+@media (max-width: 480px) {
+    .nav-logo {
+        font-size: 17px;
+    }
+    .nav-link {
+        display: none;
+    }
+    .movies-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+}

@@ -1,0 +1,160 @@
+/* ── ОБЩА СТРУКТУРА ──────────────────────────────────────────
+   Центрира картата вертикално и хоризонтално в main.
+   .auth-main се добавя към .main-content в HTML-а.
+   ──────────────────────────────────────────────────────────── */
+.auth-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 79px - 43px);
+    /* 79px = header (52px nav + 27px tagline), 43px = footer */
+    padding-top: calc(79px + 32px);
+    padding-bottom: 32px;
+}
+
+/* КАРТА  */
+.auth-card {
+    background: var(--color-white);
+    border: 0.5px solid var(--color-border);
+    border-radius: 8px;
+    padding: 36px 32px 28px;
+    width: 100%;
+    max-width: 380px;
+}
+
+/* Header */
+.auth-card-header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.auth-logo {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--color-black);
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+}
+
+.auth-subtitle {
+    font-size: 12px;
+    color: var(--color-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+
+/* ФОРМА */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* FORM GROUP (label + input + hint) */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--color-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.form-input {
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--color-black);
+    background: var(--color-bg);
+    border: 0.5px solid var(--color-border);
+    border-radius: 4px;
+    padding: 9px 12px;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.15s;
+}
+
+.form-input::placeholder {
+    color: #cccccc;
+}
+
+.form-input:focus {
+    border-color: var(--color-black);
+}
+
+/* Hint текст под input (за username и password в register) */
+.form-hint {
+    font-size: 10px;
+    color: var(--color-muted);
+    line-height: 1.5;
+}
+
+
+/* СТАТУС СЪОБЩЕНИЕ */
+.auth-status {
+    font-size: 12px;
+    color: var(--color-muted);
+    min-height: 18px; /* запазва място дори когато е празно */
+}
+
+.auth-status.success {
+    color: #27ae60;
+}
+
+.auth-status.error {
+    color: #c0392b;
+}
+
+
+/* SUBMIT БУТОН */
+.auth-btn {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    background: var(--color-black);
+    color: #ffffff;
+    border: none;
+    border-radius: 3px;
+    padding: 11px;
+    width: 100%;
+    cursor: pointer;
+    transition: opacity 0.15s;
+    margin-top: 4px;
+}
+
+.auth-btn:hover {
+    opacity: 0.85;
+}
+
+.auth-btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+
+/* "Нямаш акаунт? Регистрирай се" / "Вече имаш акаунт? Влез" */
+.auth-link {
+    text-align: center;
+    font-size: 12px;
+    color: var(--color-muted);
+    margin-top: 20px;
+}
+
+.auth-link a {
+    color: var(--color-black);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.auth-link a:hover {
+    opacity: 0.7;
+}
