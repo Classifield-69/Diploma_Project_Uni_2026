@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FilmSight</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/api.js" defer></script>
+    <script src="/js/header.js" defer></script>
+    <script src="/js/main.js" defer></script>
+</head>
+<body>
+
+    <!-- ── HEADER ── -->
+    <header class="site-header">
+        <!-- header.js рендира nav динамично според auth state -->
+        <div class="nav-tagline">Филмово AI списание</div>
+    </header>
+
+    <!-- ── MAIN ── -->
+    <main class="main-content">
+        <div class="section-header">
+            <h2 class="section-title">Всички филми</h2>
+            <span class="section-count" id="movies-count"></span>
+        </div>
+
+        <!--
+            Тук main.js инжектира картите за филмите.
+            Контейнерът е празен в HTML-а – пълни се динамично.
+        -->
+        <section id="movies-grid" class="movies-grid"></section>
+    </main>
+
+    <!-- ── FOOTER ── -->
+    <footer class="site-footer">
+        <span>© 2026 FilmSight · Всички права запазени</span>
+    </footer>
+
+</body>
+</html>

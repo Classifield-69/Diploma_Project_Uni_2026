@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FilmSight</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Общи стилове (header, footer, nav) -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Стилове специфични за страницата с детайли на филм -->
+    <link rel="stylesheet" href="/css/movie-details.css">
+    <script src="/js/api.js" defer></script>
+    <script src="/js/header.js" defer></script>
+    <script src="/js/reviews.js" defer></script>
+    <script src="/js/analysis.js" defer></script>
+</head>
+<body>
+
+    <!-- ── HEADER ── -->
+    <header class="site-header">
+        <!-- header.js рендира nav динамично според auth state -->
+        <div class="nav-tagline">Филмово AI списание</div>
+    </header>
+
+    <!-- ── MAIN ── -->
+    <main class="main-content">
+
+        <!-- Статус съобщение (зареждане / грешка) — скрива се след успех -->
+        <p id="status" class="status-msg">Зареждане...</p>
+
+        <!-- ── FILM HERO: постер вляво, инфо вдясно ── -->
+        <section id="movie-info" class="film-hero"></section>
+
+        <!-- ── REVIEWS ── -->
+        <div id="reviews-heading" class="section-header" style="display: none;">
+            <!-- reviews.js попълва текста динамично -->
+        </div>
+
+        <!-- Форма за ново ревю — reviews.js рендира динамично -->
+        <div id="review-form-container"></div>
+
+        <section id="reviews-list" class="reviews-list"></section>
+
+    </main>
+
+    <!-- ── FOOTER ── -->
+    <footer class="site-footer">
+        <span>© 2026 FilmSight · Всички права запазени</span>
+    </footer>
+
+</body>
+</html>

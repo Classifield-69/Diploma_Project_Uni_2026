@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FilmSight — Регистрация</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Общи стилове (nav, footer, fonts) -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Стилове за login и register -->
+    <link rel="stylesheet" href="/css/auth.css">
+    <script src="/js/api.js" defer></script>
+    <script src="/js/header.js" defer></script>
+    <script src="/js/auth.js" defer></script>
+</head>
+<body>
+
+    <!-- ── HEADER ── -->
+    <header class="site-header">
+        <!-- header.js рендира nav динамично според auth state -->
+        <div class="nav-tagline">Филмово AI списание</div>
+    </header>
+
+    <!-- ── MAIN ── -->
+    <main class="main-content auth-main">
+        <div class="auth-card">
+
+            <div class="auth-card-header">
+                <div class="auth-logo">FilmSight</div>
+                <p class="auth-subtitle">Създай нов акаунт</p>
+            </div>
+
+            <form id="register-form" class="auth-form" novalidate>
+                <div class="form-group">
+                    <label class="form-label" for="username">Потребителско име</label>
+                    <input
+                        class="form-input"
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="username123"
+                        required
+                        minlength="3"
+                        maxlength="50"
+                        pattern="[a-zA-Z0-9._-]+"
+                        autocomplete="username"
+                    >
+                    <small class="form-hint">3-50 символа. Букви, цифри, точки, тирета и долни черти.</small>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="email">Имейл</label>
+                    <input
+                        class="form-input"
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="example@mail.com"
+                        required
+                        autocomplete="email"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="password">Парола</label>
+                    <input
+                        class="form-input"
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="••••••••"
+                        required
+                        minlength="8"
+                        autocomplete="new-password"
+                    >
+                    <small class="form-hint">Поне 8 символа, поне една буква и една цифра.</small>
+                </div>
+
+                <!-- auth.js попълва статус съобщението -->
+                <p id="status" class="auth-status"></p>
+
+                <button type="submit" class="auth-btn">Регистрирай се</button>
+            </form>
+
+            <p class="auth-link">
+                Вече имаш акаунт? <a href="/login">Влез</a>
+            </p>
+
+        </div>
+    </main>
+
+    <!-- ── FOOTER ── -->
+    <footer class="site-footer">
+        <span>© 2026 FilmSight · Всички права запазени</span>
+    </footer>
+
+</body>
+</html>
